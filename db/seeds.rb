@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'seeding Restaurants'
+Restaurant.destroy_all
+10.times do
+  resto = Restaurant.new(name: Faker::Restaurant.name, address: Faker::Games::Pokemon.location, category: 'chinese')
+  resto.save!
+end
+puts "you created #{Restaurant.count} restaurants"
